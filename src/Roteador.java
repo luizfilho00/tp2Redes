@@ -31,6 +31,7 @@ public class Roteador {
      */
     public Roteador(String[] args) throws IOException {
         portaExecucao = Integer.parseInt(args[0]);
+        System.out.println("Roteador ON - " + " PORTA: " + portaExecucao);
         tabela = new TabelaRoteamento(args.length - 1);
 
         for (int a = 1; a < args.length; a++) {
@@ -123,16 +124,6 @@ public class Roteador {
             socketReceptor = new DatagramSocket(portaExecucao);
         } catch (SocketException ex) {
 
-            Logger.getLogger(Roteador.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
-    private void esperarReceber(DatagramPacket pacote) {
-        try {
-            socketReceptor.receive(pacote);
-        } catch (IOException ex) {
-            socketReceptor.close();
             Logger.getLogger(Roteador.class.getName()).log(Level.SEVERE, null, ex);
         }
 

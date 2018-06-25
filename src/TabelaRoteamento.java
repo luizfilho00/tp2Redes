@@ -21,7 +21,6 @@ public class TabelaRoteamento {
         linhasTabela = new EntradaTabela[quantasEntradas];
         
         for(int a = 0; a < quantasEntradas; a++) {
-            
             linhasTabela[a] = new EntradaTabela();
         }
 
@@ -42,7 +41,6 @@ public class TabelaRoteamento {
         int posicaoByte = 0;
         for (int numeroRoteador = 0; numeroRoteador < quantasEntradas; numeroRoteador++) {
             for (posicaoByte = 0; posicaoByte < 4; posicaoByte++) {
-
                 byte byteRoteadorDestino = linhasTabela[numeroRoteador].getByteRoteadorDestino(posicaoByte);
                 byte byteMascara = linhasTabela[numeroRoteador].getByteMascaraDestino(posicaoByte);
                 byte byteEnderecoDestino = enderecoDestino.getBytePosicao(posicaoByte);
@@ -54,9 +52,8 @@ public class TabelaRoteamento {
                     break;
                 }
             }
-            
+
             if(posicaoByte == 4){
-                //Significa que a mascara deu certo
                 possiveisEnderecos.add(linhasTabela[numeroRoteador]);
             }
         }
